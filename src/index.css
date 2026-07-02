@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+}
+body {
+  background: #08090b;
+  font-family: 'Manrope', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Animations ported from the Claude Design handoff ---- */
+@keyframes barShimmer { 0% { transform: translateX(-140%) skewX(-18deg); } 100% { transform: translateX(420%) skewX(-18deg); } }
+@keyframes ctaShine { 0% { transform: translateX(-160%) skewX(-20deg); } 55%, 100% { transform: translateX(430%) skewX(-20deg); } }
+@keyframes pillGlow { 0%, 100% { box-shadow: 0 0 0 rgba(205,250,80,0); } 50% { box-shadow: 0 0 14px -4px rgba(205,250,80,.5); } }
+@keyframes iconBob { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-1.6px) rotate(-3deg); } }
+@keyframes twinkle { 0%, 100% { transform: scale(.5) rotate(0deg); opacity: .3; } 50% { transform: scale(1) rotate(90deg); opacity: 1; } }
+@keyframes tilePulse { 0%, 100% { box-shadow: inset 0 0 0 1px rgba(205,250,80,.12), 0 0 0 rgba(205,250,80,0); } 50% { box-shadow: inset 0 0 0 1px rgba(205,250,80,.22), 0 0 12px -3px rgba(205,250,80,.55); } }
+@keyframes firePulse { 0%, 100% { transform: scale(1) rotate(-4deg); } 50% { transform: scale(1.16) rotate(4deg); } }
+@keyframes hourFlip { 0%, 30% { transform: rotate(0deg); } 48%, 78% { transform: rotate(180deg); } 100% { transform: rotate(360deg); } }
+@keyframes glowLime { 0%, 100% { box-shadow: 0 10px 30px -22px rgba(205,250,80,.4); border-color: rgba(205,250,80,.22); } 50% { box-shadow: 0 12px 32px -16px rgba(205,250,80,.55); border-color: rgba(205,250,80,.4); } }
+@keyframes glowRed { 0%, 100% { box-shadow: 0 10px 30px -22px rgba(255,90,106,.4); border-color: rgba(255,90,106,.24); } 50% { box-shadow: 0 12px 32px -16px rgba(255,90,106,.55); border-color: rgba(255,90,106,.44); } }
+@keyframes ringOut { 0% { transform: scale(.65); opacity: .7; } 100% { transform: scale(1.9); opacity: 0; } }
+@keyframes successGlow { 0%, 100% { box-shadow: 0 0 22px -8px rgba(205,250,80,.5); } 50% { box-shadow: 0 0 36px -4px rgba(205,250,80,.8); } }
+@keyframes raysSpin { to { transform: rotate(360deg); } }
+@keyframes errPulse { 0%, 100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.06); opacity: 1; } }
+@keyframes errShake { 0%, 82%, 100% { transform: rotate(0deg); } 86% { transform: rotate(-10deg); } 90% { transform: rotate(10deg); } 94% { transform: rotate(-6deg); } 98% { transform: rotate(3deg); } }
+@keyframes checkPop { 0% { transform: scale(0); } 60% { transform: scale(1.14); } 100% { transform: scale(1); } }
+@keyframes panelIn { from { opacity: 0; transform: translateY(-10px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes tourIn { from { opacity: 0; transform: translateY(8px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes dotPing { 0% { transform: scale(1); opacity: .55; } 70%, 100% { transform: scale(2.9); opacity: 0; } }
+@keyframes dotCore { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.22); } }
+
+.anim-shimmer { animation: barShimmer 2.4s cubic-bezier(.5,0,.5,1) infinite; }
+.anim-ctaShine { animation: ctaShine 3.4s cubic-bezier(.5,0,.5,1) infinite; }
+.anim-pillGlow { animation: pillGlow 4.5s ease-in-out infinite; }
+.anim-iconBob { animation: iconBob 3.2s ease-in-out infinite; transform-origin: 50% 60%; }
+.anim-twinkle { animation: twinkle 2.4s ease-in-out infinite; transform-origin: 50% 50%; }
+.anim-tilePulse { animation: tilePulse 3.6s ease-in-out infinite; }
+.anim-fire { animation: firePulse 1.6s ease-in-out infinite; transform-origin: 50% 72%; display: inline-block; }
+.anim-hour { animation: hourFlip 4s ease-in-out infinite; display: inline-block; }
+.anim-glowLime { animation: glowLime 3.2s ease-in-out infinite; }
+.anim-glowRed { animation: glowRed 4.5s ease-in-out infinite; }
+.anim-rays { animation: raysSpin 14s linear infinite; }
+.anim-ringOut { animation: ringOut 2.6s ease-out infinite; }
+.anim-successGlow { animation: successGlow 2.8s ease-in-out infinite; }
+.anim-errPulse { animation: errPulse 2.4s ease-in-out infinite; }
+.anim-tourIn { animation: tourIn .32s cubic-bezier(.22,1,.36,1); }
+.anim-dotPing { animation: dotPing 1.8s cubic-bezier(.22,1,.36,1) infinite; transform-origin: 50% 50%; }
+.anim-dotCore { animation: dotCore 1.8s ease-in-out infinite; transform-origin: 50% 50%; }
+.anim-errShake { animation: errShake 3s ease-in-out infinite; transform-origin: 50% 60%; display: inline-block; }
