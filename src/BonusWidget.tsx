@@ -180,24 +180,26 @@ export function BonusWidget({ status, mobile = false }: { status: Status; mobile
       {isSuccess && <Confetti runKey={runKey} />}
       <div className="relative z-[1]">
         {isSuccess ? (
-          /* ===== SUCCESS (Figma 104:774) ===== */
-          <div className="flex flex-col gap-10">
+          /* ===== SUCCESS (Figma 104:774) — key on runKey so the reveal replays each open ===== */
+          <div key={runKey} className="flex flex-col gap-10">
             <div className="flex flex-col gap-5">
-              <span className="text-[24px] font-extrabold leading-none tracking-[-.4px] text-ink">Welcome Bonus</span>
-              {/* animated seal (kept animated per request) */}
+              <span className="text-[24px] font-extrabold leading-none tracking-[-.4px] text-ink anim-rise">Welcome Bonus</span>
+              {/* animated seal */}
               <div className="w-full h-[160px] flex items-center justify-center">
                 <div className="relative w-[130px] h-[130px] flex items-center justify-center">
                   <div className="absolute w-[210px] h-[210px] rounded-full anim-rays" style={{ background: 'repeating-conic-gradient(from 0deg, rgba(205,250,80,.16) 0deg 5deg, transparent 5deg 16deg)', WebkitMaskImage: 'radial-gradient(circle, #000 26%, transparent 60%)', maskImage: 'radial-gradient(circle, #000 26%, transparent 60%)' }} />
                   <div className="absolute w-[124px] h-[124px] rounded-full anim-ringOut" style={{ border: '2px solid rgba(205,250,80,.5)' }} />
-                  <div className="relative w-[118px] h-[118px] rounded-full flex items-center justify-center anim-successGlow bg-gradient-to-b from-lime to-lime-600">
-                    <Check size={50} />
+                  {/* burst ring on reveal */}
+                  <div className="absolute w-[118px] h-[118px] rounded-full anim-sealRing" style={{ border: '3px solid rgba(205,250,80,.9)' }} />
+                  <div className="relative w-[118px] h-[118px] rounded-full flex items-center justify-center anim-sealPop bg-gradient-to-b from-lime to-lime-600">
+                    <Check size={50} draw />
                   </div>
                   <span className="absolute top-1 right-1 anim-twinkle"><Twinkle size={15} fill="#f3c969" /></span>
                   <span className="absolute bottom-2 left-2 anim-twinkle"><Twinkle size={11} fill="#ffffff" /></span>
                 </div>
               </div>
               {/* heading + subtext (divider = bottom border) */}
-              <div className="flex flex-col gap-2 w-full border-b border-[#27282c] pb-5">
+              <div className="flex flex-col gap-2 w-full border-b border-[#27282c] pb-5 anim-rise" style={{ animationDelay: '.5s' }}>
                 <span className="text-[24px] font-extrabold leading-none text-ink text-center w-full">Бонус отыгран!</span>
                 <div className="flex items-baseline justify-center gap-1 w-full">
                   <span className="text-[16px] font-medium text-lime">{money(wdVal)}</span>
@@ -205,12 +207,12 @@ export function BonusWidget({ status, mobile = false }: { status: Status; mobile
                 </div>
               </div>
               {/* details */}
-              <div className="flex flex-col gap-2 w-full text-[14px] font-semibold">
+              <div className="flex flex-col gap-2 w-full text-[14px] font-semibold anim-rise" style={{ animationDelay: '.62s' }}>
                 <div className="flex items-center justify-between"><span className="text-muted">Бонусный баланс</span><span className="text-ink">{money(balVal)}</span></div>
                 <div className="flex items-center justify-between"><span className="text-muted">К выводу после отыгрыша</span><span className="text-lime">{money(wdVal)}</span></div>
               </div>
             </div>
-            {ctaBtn('Перевести на счёт')}
+            <div className="anim-rise" style={{ animationDelay: '.74s' }}>{ctaBtn('Перевести на счёт')}</div>
           </div>
         ) : isError ? (
           /* ===== ERROR (Figma 104:889) ===== */

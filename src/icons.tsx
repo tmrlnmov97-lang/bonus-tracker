@@ -35,9 +35,17 @@ export const Close = ({ size = 10 }: { size?: number }) => (
   </svg>
 )
 
-export const Check = ({ size = 34 }: { size?: number }) => (
+export const Check = ({ size = 34, draw = false }: { size?: number; draw?: boolean }) => (
   <svg width={size} height={size} viewBox="0 0 36 36" fill="none">
-    <path d="M10 18.5 L16 24.5 L26 12" stroke="#0a1206" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M10 18.5 L16 24.5 L26 12"
+      stroke="#0a1206"
+      strokeWidth="3.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      pathLength={100}
+      className={draw ? 'anim-checkDraw' : undefined}
+    />
   </svg>
 )
 

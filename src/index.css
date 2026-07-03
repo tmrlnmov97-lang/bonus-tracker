@@ -31,6 +31,10 @@ body {
 @keyframes checkPop { 0% { transform: scale(0); } 60% { transform: scale(1.14); } 100% { transform: scale(1); } }
 @keyframes panelIn { from { opacity: 0; transform: translateY(-10px) scale(.97); } to { opacity: 1; transform: none; } }
 @keyframes tourIn { from { opacity: 0; transform: translateY(8px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes riseIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes sealIn { 0% { transform: scale(0); opacity: 0; } 55% { transform: scale(1.14); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes checkDraw { to { stroke-dashoffset: 0; } }
+@keyframes sealRing { 0% { transform: scale(.55); opacity: .8; } 100% { transform: scale(1.7); opacity: 0; } }
 @keyframes dotPing { 0% { transform: scale(1); opacity: .55; } 70%, 100% { transform: scale(2.9); opacity: 0; } }
 @keyframes dotCore { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.22); } }
 
@@ -49,6 +53,10 @@ body {
 .anim-successGlow { animation: successGlow 2.8s ease-in-out infinite; }
 .anim-errPulse { animation: errPulse 2.4s ease-in-out infinite; }
 .anim-tourIn { animation: tourIn .32s cubic-bezier(.22,1,.36,1); }
+.anim-rise { animation: riseIn .5s cubic-bezier(.22,1,.36,1) both; }
+.anim-sealPop { animation: sealIn .55s cubic-bezier(.34,1.56,.64,1) both, successGlow 2.8s ease-in-out .6s infinite; }
+.anim-checkDraw { stroke-dasharray: 100; stroke-dashoffset: 100; animation: checkDraw .5s .4s cubic-bezier(.65,0,.35,1) forwards; }
+.anim-sealRing { animation: sealRing .7s .12s cubic-bezier(.22,1,.36,1) forwards; }
 .anim-dotPing { animation: dotPing 1.8s cubic-bezier(.22,1,.36,1) infinite; transform-origin: 50% 50%; }
 .anim-dotCore { animation: dotCore 1.8s ease-in-out infinite; transform-origin: 50% 50%; }
 .anim-errShake { animation: errShake 3s ease-in-out infinite; transform-origin: 50% 60%; display: inline-block; }
