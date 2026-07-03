@@ -218,7 +218,7 @@ export function BonusWidget({ status, mobile = false }: { status: Status; mobile
               {/* details */}
               <div className="flex flex-col gap-2 w-full text-[14px] font-semibold anim-rise" style={{ animationDelay: '.62s' }}>
                 <div className="flex items-center justify-between"><span className="text-muted">Бонусный баланс</span><span className="text-ink">{money(balVal)}</span></div>
-                <div className="flex items-center justify-between"><span className="text-muted">К выводу после отыгрыша</span><span className="text-lime">{money(wdVal)}</span></div>
+                <div className="flex items-center justify-between"><span className="text-muted">К выводу после отыгрыша</span><span className="text-[#FFC030]">{money(wdVal)}</span></div>
               </div>
             </div>
             <div className="anim-rise" style={{ animationDelay: '.74s' }}>{ctaBtn('Перевести на счёт', true)}</div>
