@@ -132,16 +132,25 @@ export function BonusWidget({ status, mobile = false }: { status: Status; mobile
   const showNotif = d.notif && !bannerClosed
 
   const shine = <span className="absolute top-0 left-0 w-[55%] h-full anim-ctaShine" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent)' }} />
-  const ctaBtn = (label: string) => (
+  const ctaLime =
+    'text-[#0a0b0d] bg-gradient-to-b from-lime to-lime-600 ' +
+    'hover:from-lime-300 hover:to-lime active:from-lime-600 active:to-lime-600 ' +
+    'shadow-[0_16px_36px_-20px_rgba(205,250,80,0.35),inset_0_1px_0_rgba(255,255,255,0.3)] ' +
+    'hover:shadow-[0_18px_42px_-16px_rgba(205,250,80,0.55),inset_0_1px_0_rgba(255,255,255,0.4)] ' +
+    'active:shadow-[0_8px_20px_-16px_rgba(205,250,80,0.4),inset_0_1px_0_rgba(255,255,255,0.2)]'
+  const ctaGold =
+    'text-[#3a2a05] bg-gradient-to-b from-[#f9dd8a] to-[#e2a83e] ' +
+    'hover:from-[#fde9a4] hover:to-[#eeb84f] active:from-[#e2a83e] active:to-[#e2a83e] ' +
+    'shadow-[0_16px_36px_-20px_rgba(226,168,62,0.5),inset_0_1px_0_rgba(255,255,255,0.5)] ' +
+    'hover:shadow-[0_18px_42px_-16px_rgba(226,168,62,0.65),inset_0_1px_0_rgba(255,255,255,0.6)] ' +
+    'active:shadow-[0_8px_20px_-16px_rgba(226,168,62,0.45),inset_0_1px_0_rgba(255,255,255,0.35)]'
+  const ctaBtn = (label: string, gold = false) => (
     <button
-      className="relative overflow-hidden w-full h-[46px] rounded-lg text-[14px] font-semibold tracking-[.2px] text-[#0a0b0d]
-        bg-gradient-to-b from-lime to-lime-600
-        hover:from-lime-300 hover:to-lime hover:-translate-y-px
-        active:from-lime-600 active:to-lime-600 active:translate-y-0 active:scale-[.985]
-        transition-[transform,box-shadow] duration-150 ease-out
-        shadow-[0_16px_36px_-20px_rgba(205,250,80,0.35),inset_0_1px_0_rgba(255,255,255,0.3)]
-        hover:shadow-[0_18px_42px_-16px_rgba(205,250,80,0.55),inset_0_1px_0_rgba(255,255,255,0.4)]
-        active:shadow-[0_8px_20px_-16px_rgba(205,250,80,0.4),inset_0_1px_0_rgba(255,255,255,0.2)]"
+      className={
+        'relative overflow-hidden w-full h-[46px] rounded-lg text-[14px] font-semibold tracking-[.2px] ' +
+        'hover:-translate-y-px active:translate-y-0 active:scale-[.985] transition-[transform,box-shadow] duration-150 ease-out ' +
+        (gold ? ctaGold : ctaLime)
+      }
     >
       {shine}
       <span className="relative">{label}</span>
@@ -212,7 +221,7 @@ export function BonusWidget({ status, mobile = false }: { status: Status; mobile
                 <div className="flex items-center justify-between"><span className="text-muted">К выводу после отыгрыша</span><span className="text-lime">{money(wdVal)}</span></div>
               </div>
             </div>
-            <div className="anim-rise" style={{ animationDelay: '.74s' }}>{ctaBtn('Перевести на счёт')}</div>
+            <div className="anim-rise" style={{ animationDelay: '.74s' }}>{ctaBtn('Перевести на счёт', true)}</div>
           </div>
         ) : isError ? (
           /* ===== ERROR (Figma 104:889) ===== */
